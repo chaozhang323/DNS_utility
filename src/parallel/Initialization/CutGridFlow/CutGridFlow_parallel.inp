@@ -1,0 +1,34 @@
+inode   jnode   iCutGrid    iCutFlow
+2       4       1           1
+imaxo   jmaxo   kmaxo
+10      276     400
+ibeg, iend, iskip, jbeg, jend, jskip, kbeg, kend, kskip
+1     10    1      1     276   1      1     400   1
+gridfilename_rd
+/share/duan/jhyt7/Acoustics/M2p5_DoubleWall/Data_ForTest_10x100x400/grid.h5
+flowdataname_rd
+/share/duan/jhyt7/Acoustics/M2p5_DoubleWall/Data_ForTest_10x100x400/flowdata_00048000.h5
+iDigFilter    iSponge
+0             0
+digitalfiltername_rd
+/share/duan/jhyt7/Acoustics/M2p5_DoubleWall/Data_ForTest_10x100x400/flowdata_00000000_2d.h5
+spongebaseflowname_rd
+/share/duan/jhyt7/Acoustics/M2p5_DoubleWall/Data_ForTest_10x100x400/spongexbeg_XZ.h5
+#############################
+### mpirun -n nproc ./CutGridFlow_parallel < CutGridFlow_parallel.inp
+### nproc = inode*jnode
+#############################
+inode: # of node in i direction
+jnode: # of node in j direction
+iCutGrid: whether to cut the grid file
+iCutFlow: whether to cut the flow data file
+imaxo,jmaxo,kmaxo: grid dimension in i, j, k direction (original data)
+ibeg, iend, iskip, jbeg, jend, jskip, kbeg, kend, kskip:
+    i, j, k range for the new grid/flow data
+gridfilename_rd:
+flowfilename_rd: grid/flow file name to read
+iDigFilter: whether to generate digital filter inflow from "flowdata_00000000_2d.h5"
+digitalfiltername_rd: this file contains all necessary flow variables for digital filter inflow
+                      u, v, w, p, T, rho, uu, vv, ww, uv, uw, vw
+iSponge: whether to cut sponge base flow
+spongebaseflowname_rd: 2D sponge inflow

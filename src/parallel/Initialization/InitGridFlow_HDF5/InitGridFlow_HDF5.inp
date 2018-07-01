@@ -1,0 +1,31 @@
+initGrid(0/1)   initFlow(0/1)   (# of cores should be less than kmaxo)
+ 1                1
+imaxo   jmaxo   kmaxo
+ 400    300     130
+imax    jmax    kmax
+ 800    300     130
+ixWavelengthConst(0/1)   iyWavelengthCost(0/1)
+ 0                         0
+Gridfilename
+/share/duan/czb58/tmp/400x300x130/grid.h5
+Flowdataname
+/share/duan/czb58/tmp/400x300x130/flowdata_00000000.h5
+
+#######################################################
+the number of cores should be less than kmaxo
+
+initGrid, initFlow (0/1)
+        initGrid: init Grid file
+        initFlow: init flowdata file
+          
+imaxo, jmaxo, kmaxo
+        # of mesh-points of the input (old) grid/flowdata in the streamwise, 
+        spanwise and wall-normal directions
+        
+imax, jmax, kmax
+        # of mesh-points of the output (new) grid/flowdata in the streamwise, 
+        spanwise and wall-normal directions
+        
+  if kmaxo.ne.kmax, it will generate two new files. new1 has the dimension (kmaxo,imax,jmax)  
+                                                    new2 has the dimension (kmax ,imax,jmax)              
+          
