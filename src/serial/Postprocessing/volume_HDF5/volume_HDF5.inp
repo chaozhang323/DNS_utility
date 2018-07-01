@@ -1,0 +1,72 @@
+datadir
+/share/duan/czb58/test_DNS/New_code/Test_400x300x130/REST/
+MolecularWeight(kg/kmole)
+ 28.97
+file_be  file_end  file_skip   iAppend(0/1)   icylin  iBaseflowSubtract   isym
+  0        1         1            0              0            0            0
+iFlowData(0/1) iRescaleMean(0/1)
+ 1                 0
+############# input for FlowData  ################ 
+ ist   iend  isp     jst   jend   jsp    kst   kend  ksp
+ 1     400    1      1     300     1     1     130   1
+nvar_vol_output      
+ 4
+1 2 3 15 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+############# input for RescaleMean ################
+data_dir
+/share/duan/duanl/Acoustics/M8_Sandia/run4_3200x500x600/RESCALEMEAN/
+grid_dir  (directory for grid.h5)
+/share/duan/duanl/Acoustics/M8_Sandia/run4_3200x500x600/REST/
+istencilsize  kmax 
+ 4            600
+uinf    rhoinf (reference value)
+1135.0  0.017
+
+######## NOTHING IS READ BELOW #############################
+
+iFlowData(0/1): whether to read flow data
+
+iRescaleMean(0/1): whether to read rescale mean data
+
+
+The order for the 17 output variables:
+ 1   2   3   4   5   6   7   8    9     10         11      12    13    14    15     16   17    18            19      20          21
+'x','y','z','u','v','w','p','t','rho','grad_p','grad_rho','omx','omy','omz','div','swil','Q'   'src_Philip'  'p0'  'Lap_rho'   'shockloc'
+
+The program computes volumetric statistics or statistics in xy, xz, yz directions,
+including iso-surface of swirl, vorticity, density and pressure gradients
+
+datadir
+   directory path for flow solution files (flowdata_xxxxxxxx.sol or flowdata_xxxxxxxx.h5)
+
+uinf, delta, utau, ztau
+   Reference values ( freestream velocity (m/s), boundary-layer thickness (m),
+   friction velocity (m/s), viscous length (m) )
+
+file_be, file_end, file_skip, iHDF5(0/1), iAppend(0/1)
+   Flags to specify ranges of flowfield index for computing statistics
+   file_be:  start flowfield index
+   file_end: end flowfield index
+   file_skip: stride of flowfiled index
+   iAppend: 0 not append (for output *.plt)
+   icylin: 1 for cylindrical visualization. In ivolumn and iplane_yz, 
+           if jend=jmax, it will automatically add (jmax+1)th point to the end.
+   iBaseflowSubtract: whether to subtract the baseflow from the flow field so that disturbance field can be calculated.
+
+  ist   iend   isp   jst   jend   jsp    kst   kend  ksp
+      ist, iend, isp
+         i-index ranges
+      jst, jend, jsp
+         j-index ranges
+      kst, kend, ksp
+         k-index ranges
+
+ isym: whether to write out the symmetric plane at the same time
+       if: isym.eq.1 .and. icylin.eq.1 .and. jst.eq.jend .and. jsp.eq.1
+           axisymmetric 2D cut of the domain will be written (ilen_wt x 1 x 2*klen_wt)
+
+
+
+
+
+

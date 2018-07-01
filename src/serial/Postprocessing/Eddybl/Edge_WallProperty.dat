@@ -1,0 +1,24 @@
+  xloc(m)   pe(pa)   tw(k)    qw(watts/(m^3sec))    rvwald(kg/(m^2sec))    rmi(m)     z(m)    zcurv(1/m)
+   0.        673.6   300      0.                     0.                    0.3048     0.       0.
+   6.096     673.6   300      0.                     0.                    0.3048     6.096    0.
+
+
+
+
+##########################################################################
+Edge/wall properties corresponding to num_profile = 2 for the current input
+      xoc(m)     pe(pa)  tw(k)    qw(watts/(m^3sec))    rvwald(kg/(m^2sec))    rmi(m)     z(m)    zcurv(1/m)
+ 1     0.        673.6   300      0.                     0.                    0.3048     0.       0.
+ 2     6.096     673.6   300      0.                     0.                    0.3048     6.096    0.
+
+
+xloc: arclength along the body
+     xloc =     0 m for the minimum streamwise location for the computation
+     xloc = 6.096 m for the maximum streamwise location for the computation
+ pe: pressure at the boundary-layer edge
+ Tw: surface temperature
+ qw: surface heat flux
+ rvwald: surface mass transfer rate
+ rmi: boundary radius
+   z: axial distance along the body
+zcurv: curvature of the body. This is the reciprocal of the radius of curvature.

@@ -1,0 +1,19 @@
+dpds(N/m^3)    dTwds(k/m)  dqwds(Watts/m^3sec)  dmds(kg/(m^3sec))  drds(Dimensionless)  dzds(Dimensionless)  dKds(1/m^2) 
+0.             0.            0.                    0.                0.                   1.                   0.
+0.             0.            0.                    0.                0.                   1.                   0.
+
+
+
+###################################
+
+The first line is the initial slop.
+The second line is the final slop.
+ 
+  dpds: value of the streamwise pressure gradient.
+ dTwds: value of the streamwise surface-temperature gradient.
+ dqwds: value of the streamwise surface heat-flux gradient.
+  dmds: value of the streamwise mass-flux gradient.
+  drds: value of the streamwise body-radius gradient.
+  dzds: value of the streamwise axial-distance gradient.
+  dKds: value of the streamwise curvture gradient.
+
