@@ -1,0 +1,50 @@
+p_row   p_col
+ 2       2
+##########################################################
+imax   jmax    kmax
+1600    800     500
+file_be  file_end   file_skip
+106000 	  424000    1000  
+##########################################################
+gridfilename
+../volume/grid.h5
+datadir
+../volume/flowdata_
+gname (groupname)
+/
+  
+
+
+   
+
+######## NOTHING IS READ BELOW #############################
+ 
+
+gname: for flowdata files the group name should be '/' 
+
+ 
+2D Domain decomposition (grid processor): Make sure that min(nx,ny) >= p_row and min(ny,nz) >= p_col
+For corrxy: nx = num_kref; ny = iend - ibe + 1; nz = jmax
+            z-pencil is used
+            if(numprocs >= num_kref) p_row = num_kref; p_col = numprocs/num_kref
+            if(numprocs < num_kref)  p_row = numprocs; p_col = 1
+
+The required input data are
+DNS grid ("grid.h5") and
+DNS volumes ("flowdata_xxxxxxxx.h5").
+
+The domain decomposition & FFT (if required) is based upon 2DECOMP&FFT
+(http://www.2decomp.org/index.html)
+
+datadir
+   directory path for flow grid/solution files (REST/)
+
+imax    jmax    kmax
+   number of grid points in the x, y, z directions, respectively
+
+ 
+
+MolecularWeight(kg/kmole): air      28.97
+                         nitrogen   28.01
+
+ 

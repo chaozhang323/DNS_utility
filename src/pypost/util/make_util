@@ -1,0 +1,9 @@
+#!/bin/bash
+MODULENAME=util_f
+FCOMPILER=gnu95
+F90FLAGS="-fopenmp -lgomp"
+SRC="mod_time.f90 mod_diff.f90 mod_metrics.f90 interp2d.f90 unstructured.f90 mod_gridgen.f90 flow.f90"
+
+#f2py -c -m $MODULENAME --verbose --fcompiler=$FCOMPILER --f90flags=$F90FLAGS $SRC
+#f2py3 -c -m $MODULENAME --verbose --fcompiler=$FCOMPILER --f90flags=$F90FLAGS $SRC
+python3 -m numpy.f2py -c -m $MODULENAME --verbose --fcompiler=$FCOMPILER --f90flags=$F90FLAGS $SRC

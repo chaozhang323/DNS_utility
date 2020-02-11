@@ -1,0 +1,9 @@
+*.so
+*.pyc
+*.log
+*.h5
+*.dat
+*.lay
+*.txt
+env/
+InitBody/

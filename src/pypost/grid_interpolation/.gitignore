@@ -1,0 +1,11 @@
+*.so
+*.txt
+*.pyc
+*.log
+*fuse*
+*.szplt
+*.plt
+*.dat
+*.lay
+*.h5
+*.bk

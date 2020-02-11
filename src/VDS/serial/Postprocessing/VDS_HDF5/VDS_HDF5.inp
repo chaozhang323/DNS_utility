@@ -1,0 +1,47 @@
+imax  jmax  kmax       kioplane         inode  jnode      
+20     300  130         10               4     4                  
+iConvert_grid(0/1)     iFormat_grid   
+  0                      0                
+iConvert_flow(0/1)     iFormat_flow          
+  1                      3               
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+File path for grid & flowdata files: 
+filepath_rd
+../
+filepath_wt
+./
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The following is the flowdata number:
+file_be		file_end	file_skip
+250000    250000               1
+
+###############################################################
+Create single volume Virtual Dataset (only tested using i-node and j-node)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Please type the following line in the terminal (on Forge)
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/duan/data/czb58/Package/HDF5_1.10.1_serial/lib
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+iConvert_grid, iConvert_flow :  0 -- not convert
+                                1 -- convert
+
+iFormat_grid, iFormat_flow   :  1 -- Make VDS file from multiple HDF5 files using kioplane
+                                   # kioplane will be used when iFormat = 1
+                                2 -- Make VDS file from multiple HDF5 files using inode
+                                   # inode will be used when iFormat = 2
+                                3 -- Make VDS file from multiple HDF5 files using jnode
+                                   # jnode will be used when iFormat = 3
+
+
+filepath_rd, filepath_wt : file path for read and write
+
+file_be, file_end, file_skip: flow file begin, end and skip number
+
+
+
+
+                               
+                               
+                               
+                               

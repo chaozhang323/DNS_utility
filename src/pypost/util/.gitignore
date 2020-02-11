@@ -1,0 +1,13 @@
+*.so
+*.pyc
+*.o
+*.mod
+*.bak
+*.out
+*.swp
+/dist/
+/build/
+/env/
+/test/
+__pycache__
+/*.egg-info

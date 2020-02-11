@@ -1,0 +1,7 @@
+## needed package ##
+numpy
+scipy
+simpy
+h5py
+pytecplot
+

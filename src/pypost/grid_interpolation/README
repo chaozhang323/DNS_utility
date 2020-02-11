@@ -1,0 +1,28 @@
+## Instruction for near wall variable extraction ##
+You're advised to install package UTIL to your local python compiler, by runing the following,
+cd <path to util>
+cd util
+. forge.sh
+And you would be able to proceed.
+
+If you are dealing with a FLUENT data file, which has unstructured format, you'll have to rebuild the unstructured data into a structured one, by doing the following,
+vi structured_builder.py
+And modify a few parameters, mainly the directories/filenames of your input/output.eg.
+dir_in
+filename_out_grid ## where structured grid is generated
+filename_out_data ## where structured data is generated
+filename_out_vis  ## where visualization file is generated
+...
+Details are enclosed in the python code.
+
+
+Execute the python code. If you receive no warnings nor errors, you can now proceed to the next stage to extract the profiles.
+
+Make a few changes to extract_profiles.py mainly the directories/filenames of your input/output.
+dir_in
+filename_in_grid
+filename_in_data
+...
+Details are enclosed in the python code.
+
+Execute the python code.
