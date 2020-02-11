@@ -1,0 +1,15 @@
+&inputs
+icyl2cart = 0,      ! 0 Cartesian to Cylindrical, OR 1 cylindrical to Cartesian
+
+kmax = 320,         ! File dimension !
+imax = 1400,        ! k,i,j max      !
+jmax = 64,          ! Defined here   !
+
+origin = 0.,0.      ! origin (y,z)   !
+/
+!--------------Input Filenames--//order: grid, flowdata---!
+grid.h5
+flowdata_00000000.h5
+!--------------Output Filenames---------------------------!
+grid_new.h5
+flowdata_00000000_new.h5

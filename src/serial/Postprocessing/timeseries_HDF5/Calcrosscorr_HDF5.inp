@@ -1,0 +1,33 @@
+ireadVOL(0/1)
+   1 
+icrossx icrossxt  
+  1        0     
+##########################################################
+file_be   file_end  file_skip
+311000     311000    1000
+filepath
+/share/duan/duanl/Acoustics/M14_Acoustics/NarrowSpan/Acoustic/M14_box1/TIMESERIES_1/
+##########################################################
+nperiod  ioverlap  iwindow 
+20       1         1       
+
+nvar_output
+ 1
+ 4         ! varindex_output
+kloc_ref    varindex_ref
+  11            4
+ibe   iend   jbe   jend   ixwindowl  ixwindowr  
+2300   2300   1    460    80          80          
+num_kplane 
+ 1           
+ 1    11
+########### The following info should be provied if ireadVOL=0 ##############
+ntpoint   nskip       dx_sample           dy_sample              dt_sample
+100       0           0.960384E-03       0.4793028332244E-03       1.5e-7
+ibe_fromDNS  iend_formDNS  iskip_fromDNS  jbe_fromDNS  jend_fromDNS  jskip_fromDNS   ibuffer_fromDNS
+1043         2396          1              1             460           1              5
+      
+############# NOTHING IS READ BELOW #######################################
+
+ireadVOL: read directly from timeseries volume
+icrossx: 

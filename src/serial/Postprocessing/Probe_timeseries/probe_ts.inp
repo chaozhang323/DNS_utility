@@ -1,0 +1,45 @@
+flowpath
+./
+gridfilename
+grid.h5
+iprobe    iindx    iflow
+2         1        1
+file_st   file_ed    file_sp
+284000    284000     1000
+nvars_output
+5
+1, 2, 3, 4, 5
+# jplane
+ist    ied    kst    ked    num_jp   indx_jp   nt
+2306   2435   1      595    1        1         100
+# iplane
+jst    jed    kst    ked    num_ip   indx_ip   nt
+2306   2435   1      595    1        1         100
+npoints
+3
+2649,1,198
+2435,1,1
+2435,1,198
+
+##################
+1, 2, 3, 4, 5
+u, v, w, p, T
+############################################################################################################
+Read in flowdata_xxxxxxxx.h5 or timeseries_xxxxxxxx.h5, probe the data points and write timeseries (*.dat format)
+iprobe: probe points method
+        1 probe from flowdata_xxxxxxxx.h5	# not implemented
+        2 probe from timeseries_xxxxxxxx.h5/jplane
+        3 probe from timeseries_xxxxxxxx.h5/iplane
+iindx: whether to use index or actual coordinate
+iflow: flow type
+       1 air
+       2 nitrogen
+file_st,file_ed,file_sp: file start/end/skip
+nvars_output: # of variables to output (max: 6)
+# jplane/iplane
+ist,ied,jst,jed,kst,ked: i/j/k start/end of timeseries data
+num_ip,num_jp: # of iplane/jplane in file
+indx_ip,indx_jp: index of iplane/jplane to read
+nt: # of time series in a file
+npoints: # of points to save, use global i/j/k index
+(i,j,k)

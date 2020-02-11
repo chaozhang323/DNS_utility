@@ -1,0 +1,62 @@
+uinf          rhoinf           Tinf        iCalMu(0/1)   zplus_ref  Pr
+1881.88       0.0172762         300.0       0             40.       0.71
+MolecularWeight(kg/kmole)
+28.97
+#########################################################
+iHDF5(0/1)
+ 1
+gridpath
+/share/duan/duanl/TestDNS/testPHDF5/M14_fromPleiades/AVERAGE/AveAcousticStat_GridMetrics.h5
+filepath
+/share/duan/czb58/Acoustics/M14_Acoustics/AveAcousticStat_timeave0310-0425Stat.h5
+ ibe        iend       kbe        kend  (selected region)
+  1         2500        1         540 
+imax_file  kmax_file
+2500         540
+num_kinf
+  2
+ 460 510
+#########################################################
+iDat(0/1)   nskip
+ 0           10
+datapath
+./M5T1.dat
+ kbe   kend
+ 1     110
+num_kinf
+  1
+ 100
+
+############# NOTHING IS READ BELOW #######################################
+Using Averaged AveAcousticStat file to calculate the following variables.
+    x, z, utau, ztau, Retau, Retau_star, Uvd, Uvd_Trettel, zplus_Trettel, Prt, Prt_ave, Pre, 
+    Prt_Bowersox, tau_xz, tau_zz, theta1, theta2, theta3, x2_smooth, delta, Walz, Walz_g, 
+    u_uinf, T_Tinf, ZII_plus, Uvd_Wu, SRA_Huang, SRA_Zhang'
+
+iCalMu  0 Sutherland law for air
+        1 Keyes' law     for N2
+
+MolecularWeight(kg/kmole): air      28.97
+                         nitrogen   28.01
+
+zplus_ref: not used now
+
+iHDF5 : read AveAcoustic file        
+        
+ibe, iend, kbe, kend are the dimensions of the averaged AveAcoustics file.
+
+num_kinf: used for calculating the integral variables.
+The output file "out.dat" will include "num_kinf" zones.
+
+iDat: read *.dat file with the following variables 
+     "z, rho, u, v, w, t, p  "
+
+nskip: skip number for *.dat file
+
+
+
+Cf and Ch are calculated using the variable values at the boundary layer edge (99% delta)
+Cf_inf and Ch_inf are calculated using the provided variables (rhoinf, uinf)
+
+
+

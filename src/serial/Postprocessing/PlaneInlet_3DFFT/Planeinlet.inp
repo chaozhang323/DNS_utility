@@ -1,0 +1,46 @@
+uave  vave  wave    pave      tave       MolecularWeight(kg/kmole)
+870.4  0    5.511   670.953   54.89658       28.97
+filepath_input
+/share/duan/czb58/M6_AIII_2880x320x786/TIMESERIES/
+filepath_output
+./
+file_be  file_end  file_skip
+340025     340025   25
+######### selected 3D region for doing Helmholtz Decomposition ###############              
+xbeg    xend   ybeg   yend       zbeg       zend      
+0.84869  0.92   0.    0.07131     0.0585     0.104
+##############################################################################
+nperfile (nt_buffer)
+1
+new inlet grid file  
+./inletgrid.h5
+ifilter_np   Pfile_skip    
+  6             0
+num_iplane_output   xloc_output(m)     
+    4                0.89
+
+
+
+##############################################################################
+filepath: the directory for timeseries volume (or plandata file)
+filepath_output: the directory for the output files
+
+file_be, file_end, file_skip: file numbers for timeseries volume
+
+selected region in timeseries volume. (should check the length scale in file timeseriesVol_grid.h5) 
+  xbeg, xend  (m)
+  ybeg, yend  (m)
+  zbeg, zend  (m)
+    
+nperfile
+  number of samples per planeinlet data file
+  
+ifilter_np: # of grid points for the filter
+
+Pfile_skip: file skip number for the planeseries files: planedata_####.h5
+
+num_iplane_output: # of iplane for output
+xloc_output: x location for output 
+
+
+

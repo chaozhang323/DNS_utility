@@ -1,0 +1,29 @@
+uinf          rhoinf           Tinf        iCalMu(0/1)     MolecularWeight(kg/kmole)
+1881.88       0.0172762         300.0       0               28.97
+gridpath 
+/share/duan/duanl/TestDNS/testPHDF5/M14_fromPleiades/AVERAGE/AveAcousticStat_GridMetrics.h5
+filepath
+/share/duan/czb58/Acoustics/M14_Acoustics/AveAcousticStat_timeave0310-0425Stat.h5
+   ibe        iend       kbe        kend
+    1         2500        1         540 
+num_kinf
+  2
+ 460 510
+
+############# NOTHING IS READ BELOW #######################################
+Using Averaged AveAcousticStat file to calculate the following variables.
+    " delta  theta  dstar Cf qw Ch Cf_inf Ch_inf Retheta Redelta2 H "
+
+iCalMu  0 Sutherland law for air
+        1 Keyes' law     for N2
+        
+ibe, iend, kbe, kend are the dimensions of the averaged AveAcoustics file.
+
+num_kinf: used for calculating the integral variables.
+The output file "Cal_IntVar.plt" will include "num_kinf" zones.
+
+Cf and Ch are calculated using the variable values at the boundary layer edge (99% delta)
+Cf_inf and Ch_inf are calculated using the provided variables (rhoinf, uinf)
+
+
+

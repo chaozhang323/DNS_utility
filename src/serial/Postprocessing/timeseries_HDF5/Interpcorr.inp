@@ -1,0 +1,51 @@
+nfiles  # Number of files to be interpolated
+ 2
+######## File 1 Information #####################
+filename 
+/nobackupp6/lduan/TBL/M25_acoustic/M25_acoustic_largespan/corrxt_k0001_p.dat
+nvars       nheaders     is_block_data    ndim    IsCalPhasespeed 
+  3          4             0              2          1
+idimold       idimnew
+ 6244          6244 
+idimold       idimnew
+ 121           1201
+######## File 2 Information #####################
+filename 
+/nobackupp6/lduan/TBL/M25_acoustic/M25_acoustic_largespan/corrxt_k0267_p.dat
+nvars     nheaders       is_block_data    ndim    IsCalPhasespeed
+  3          4               0              2          1
+idimold       idimnew
+ 6244         6244
+idimold       idimnew
+ 121          1201
+############ NOTHING IS READ BELOW ##################################
+nfiles
+   Number of files to be interpolated
+
+imaxo, jmaxo, kmaxo:
+   Dimensions of old (input) field 
+
+imax, jmax, kmax:
+   Dimensions of new (interpolated) field 
+Recommend value for idimnew:
+    idimnew = 2*idimold-1, if idimold is even
+    idimnew = 2*(idimold-1), if idimold is odd
+
+nvars:
+   Number of variables to be interpolated in the current file
+
+filetype:
+   File type of intterpolating files
+        0: 3D Solution Plane File with addiation parameter 'TIME'
+        1: 3D Solution Plane File without addiational parameter
+        2: 3D Grid Plane File
+
+filename:
+   Name of the interpolating file
+
+ixwlconst, iywlconst, iywlconst:
+   Flag to control whether to preserve domain size or preserve
+   wavelength in x/y/z direction
+        0: preserve domain size in x/y/z
+        1: preserve wavelength in x/y/z
+

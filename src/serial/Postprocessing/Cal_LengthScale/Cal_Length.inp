@@ -1,0 +1,54 @@
+icorrxy(0/1)   icorrxz(0/1) icohLength  iRead_AveAcoustic_GridMetric(0/1)
+ 0              0              1                 1
+ Gird file name
+./AveAcousticStat_GridMetrics.h5
+######### streamwise-spanwise correlation file information########
+filename
+../corrxy_i1450-1500_timeave00272000-00424000.dat
+dim1  dim2  nvar  TotZone nheaders
+161    800   2    10         1
+variable_index ! 1 for Cpp; 2 for Cuu
+2
+th(threshold)  iIntegralLength(0/1)
+0.1              0
+######### streamwise-wall-normal correlation file information########
+filename
+../corrxz_i1450-1500_timeave00272000-00424000.dat
+ dim1  dim2  nvar TotZone nheaders
+ 800   10     15     10        1
+variable_index ! 1 for Cpp; 2 for Cuu
+2
+th(threshold)
+0.2
+######### coherence file information########
+filename
+../corrxz_i1450-1500_timeave00272000-00424000.dat
+ dim1  dim2 dim3 nvar TotZone nheaders
+ 800   10    20    15     10        1
+variable_index ! 1 for Cpp; 2 for Cuu
+2
+th(threshold)
+0.5
+
+
+###########  Nothing is read below ##################
+icorrxy(0/1) : calculate the length scale using streamwise-spanwise    correlation file
+icorrxz(0/1) : calculate the length scale using streamwise-wall-normal correlation file
+iIntegralLength(0/1): calculate the integral legnth scale using streamwise-spanwise    correlation file
+
+iRead_AveAcoustic_GridMetric(0/1): 1 read AveAcousticStat_GridMetrics.h5 file
+
+nvar: 
+variable_index: 1 for Cpp; 2 for Cuu
+
+th: nondimensional threshold value
+
+
+
+
+
+
+         
+         
+         
+

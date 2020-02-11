@@ -1,0 +1,59 @@
+ntpoint     nskip     nt_buffer   
+4            0          2 
+filepath
+/share/duan/czb58/dnsmst_utilities/src/serial/Postprocessing/bin2hdf5/
+fileoutput
+/share/duan/czb58/tmp/
+
+iConvert_kp (0/1) inew_kp
+1                   1
+ibe_k    iend_k   iskip_k    jbe_k   jend_k    jskip_k    ibuffer_k  
+ 200       400      2          1      291        10          50
+num_kplane
+2
+1 11   
+
+iConvert_ip (0/1) inew_ip
+0                   0 
+jbe_i  jend_i  jskip_i   kbe_i  kend_i  kskip_i  jbuffer_i
+ 150    300       2         1     129      2        30
+num_iplane
+2
+300 350
+
+iConvert_jp (0/1)  inew_jp
+0                    0
+ibe_j  iend_j  iskip_j   kbe_j  kend_j  kskip_j  ibuffer_j
+ 200     400     10       1     130      1        10
+num_jplane
+2
+1   150
+
+############# NOTHING IS READ BELOW #######################################
+
+ntpoint: the total number of time point
+      
+ibe, iend, ikip: 
+       Streamwise range of spatial points in DNS code
+
+jbe, jend, jskip: 
+       Spanwise range of spatial points in DNS code
+
+kbe, kend, kskip
+       Wall-normall range of spatial points in DNS code
+
+num_kplane:
+       number of wall-normal locations for computing the spectrum
+       (indexes of streamwise-spanwise planes)
+
+
+ibuffer_k:   buffer size in the i-direction for kplane
+
+jbuffer_i:   buffer size in the j-direction for iplane
+
+ibuffer_j:   buffer size in the i-direction for jplane
+
+
+
+
+

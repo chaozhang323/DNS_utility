@@ -1,0 +1,26 @@
+iFormat (0/1)
+0
+######## TIMESERIES file information########
+filepath
+/share/duan/duanl/TestDNS/testPHDF5/M14_fromPleiades/TIMESERIES_1/
+file_be  file_end file_skip
+311000    425000   1000
+dt_sample        didx_ip
+1.5e-7            1041.25
+num_iplane  ntpoint  jbe_i jend_i   jsp_i  kbe_i kend_i  ksp_i
+    1       100         1     460    1       1    460     1
+######### AveAcoustic file information ########
+filename
+/share/duan/czb58/workspace/M6_Coldwall/AveAcoustics/AveAcousticStat_timeave0496-1118_2D.h5
+gridname
+/share/duan/czb58/workspace/M6_Coldwall/AveAcoustics/AveAcousticStat_timeave0496-1118_2D.h5
+ibe   iend    iskip   kbe   kend    kskip 
+ 1    2400     1      1      560     1
+
+##########################################
+iFormat: 0 : read TIMESERIES files
+         1 : read AveAcoustic file
+         
+         
+         
+

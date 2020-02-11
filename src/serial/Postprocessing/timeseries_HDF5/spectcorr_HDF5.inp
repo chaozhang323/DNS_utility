@@ -1,0 +1,146 @@
+iFileType(0/1/2)   
+    1             
+##########################################################
+file_be     file_end     file_skip
+311000        452000       1000
+filepath
+/share/duan/duanl/Acoustics/M14_Acoustics/NarrowSpan/Acoustic/M14_box1/TIMESERIES_1/
+##########################################################
+icalPSD    icalcorrxt    icalcorrxy  icalWNSD_ky icalWNSD_kx  icalphasespeed  icalky_freq  icalkx_freq  ical3D   ical_skewness  icalkx_ky  icalWNSD_kz
+ 1           0            0             0          0            0               0            0           0           0            0           0
+nsection   nsection_kx      ioverlap     iwindow    
+1             1              1            1             
+
+nvar_output
+1
+4          !varindex_output
+##########################################################################
+################### Timeseries kplane information ########################
+iread_kplane (0/1)
+0
+ibe       iend    jbe     jend       ixwindowl  ixwindowr     
+2300      2301      1      460          0         0          
+num_kplane
+ 1
+ 1  11  31  96  187  293  362  429
+########### The following info should be provied if ireadVOL=0 ##############  (for timeseries kplane)
+ntpoint  nskip   dx_sample        dy_sample                dt_sample            
+100      0       0.960384E-03   0.4793028332244E-03        1.5e-7  
+ibe_fromDNS  iend_fromDNS iskip_fromDNS jbe_fromDNS jend_fromDNS  jskip_fromDNS  ibuffer_fromDNS
+1043             2396        1              1          460        1                5
+##########################################################################
+################### Timeseries iplane information ########################
+iread_iplane (0/1)
+ 0
+jbe       jend    kbe     kend       ixwindowl  ixwindowr     
+ 1        300      1      460          0         0          
+num_iplane
+ 1
+ 1
+########### The following info should be provied if ireadVOL=0 ##############  (for timeseries i-plane)
+ntpoint  nskip   dy_sample        dz_sample                dt_sample            
+100      0       0.960384E-03   0.4793028332244E-03        1.5e-7  
+jbe_fromDNS  jend_fromDNS  jskip_fromDNS kbe_fromDNS kend_fromDNS  kskip_fromDNS  jbuffer_fromDNS
+1043             2396        1              1          460            1                5 
+##########################################################################
+################### Timeseries jplane information ########################
+iread_jplane (0/1)
+ 0
+ibe       iend    kbe     kend       ixwindowl  ixwindowr   kzwindowd  kzwindowu  
+2300      2301      1      460          0         0           0          0
+num_jplane
+ 1
+ 1  
+icalcorrxz  icalcorrzt     dx_sample      dz_sample
+ 0            0            0.960384E-03   0.4793028332244E-03
+##########################################################################
+################### Timeseries volume information #########################
+ireadTSVol(0/1)
+0
+icalcorrzt 
+0
+ibe  iend   jbe   jend   kbe   kend  ixwindowl  ixwindowr  kzwindowd  kzwindowu       
+600   600    1     1     1     300       0        0          0          0
+dx_sample     dy_sample      dz_sample     dt_sample    nt_pefile
+0.960384E-03  0.960384E-03  0.960384E-03  0.960384E-03     100
+ibe_fromDNS  iend_fromDNS  jbe_fromDNS  jend_fromDNS  kbe_fromDNS  kend_fromDNS
+    1           1000           1           400             1          500
+##########################################################################
+###################  for skewness and flatness   #########################
+ilocal_ave(0/1/2)   iradius(m)  
+ 0                   0.0021     
+num_freq
+ 0
+ 5e3   200e3   ! freq_lower, freq_upper
+ 10e3  200e3   ! freq_lower, freq_upper
+
+
+############# NOTHING IS READ BELOW #######################################
+Program to compute time series spectrum, correlation is always computed.
+Debug information will be written in file "timeseries_hdf5.debug"
+
+iFileType: 0 -- read converted TIMESERIES files (old format)
+           1 -- read TIMESERIES volume (filepath/timeseries_xxxxxxxx.h5,        filepath/DNS_index.h5, filepath/series_time_ascii.dat)  
+           2 -- read TIMESERIES volume (filepath/timeseries_kplane_xxxxxxxx.h5, filepath/DNS_index.h5, filepath/series_time_ascii.dat) 
+
+file_be, file_end, file_skip: begin and end index of time series files (timeseries_xxxxxxxx.h5)
+filepath: file path containing timeseries_xxxxxxxx.h5, timeseries_GridMetrics.h5, DNS_index.h5, &
+          series_time_ascii.dat
+icalPSD: calculate Power Spectrum Density
+icalcorrxt: calculate space-time correlation
+icalcorrxy: calculate streamwise-spanwise correlation
+icalWNSD_ky: calculate spanwise wave-number spectrum density
+icalWNSD_kx: calculate streamwise wave-number spectrum density
+icalky_freq: calculate ky-frequency spectrum density (window function is only used in time direction)
+icalkx_freq: calculate kx-frequency spectrum density (window function is used in time direction, will be modified to add window function in kx direction)
+ical3D: calculate kx-ky-frequency spectrum density
+ical_skewness: calculate skewness and flatness
+icalkx_ky: calculate streamwise-spanwise spectrum density (window function is used in kx direction)
+icalWNSD_kz: calculate wall-normal wave-number spectrum density
+
+nsection: the number of bins in time space
+nsection_kx: should be provided when ical3d.eq.1
+ioverlap: 1 means compute spectrum using overlapped sections, i.e. the actual section will be 2*nperiod
+iwindow: (see modFFT.f90)
+    0: top hat
+    1: hann
+    2: flat hann
+    3: Hamming 
+nvar_output: # of output variables
+varindex_ouput: output variable index  
+                          1   2   3   4   5   6    7    8    9    10
+               kplane: (/'u','v','w','p','t','uk','vk','wk','pk','tk')
+               iplane: (/'u','v','w','p','t','ui','vi','wi','pi','ti')
+               jplane: (/'u','v','w','p','t','uj','vj','wj','pj','tj')
+
+ibe, iend, isp: 
+       Streamwise range of spatial points for averaging the statistics
+
+jbe, jend, jsp: 
+       Spanwise range of spatial points for averaging the statistcs
+
+ibe_fromDNS,  iend_fromDNS, iskip_fromDNS
+      Streamwise range of spatial points for available DNS timeseries output
+
+jbe_fromDNS,  jend_fromDNS, jskip_fromDNS
+      spanmwise range of spatial points for available DNS timeseries output
+
+ibuffer_fromDNS
+      streamwise buffer size of DNS timeseries output files
+num_kplane:
+       number of wall-normal locations for computing the spectrum
+       (indexes of streamwise-spanwise planes)
+
+nperiod: used to determine the number of (temporal) data points
+         per segments
+         if ioverlap = 0, # of data points per segments = nperiod
+         if ioverlap = 1, # of data points per segments = 2*nperiod
+
+num_freq: number of frequency to filter the data    
+freq_lower: lower freqency bound
+freq_upper: upper frequency bound     
+         
+         
+         
+         
+         

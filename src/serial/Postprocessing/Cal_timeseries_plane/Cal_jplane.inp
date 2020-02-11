@@ -1,0 +1,10 @@
+filepath
+/share/duan/duanl/TestDNS/testPHDF5/M14_fromPleiades/TIMESERIES/timeseries_
+filepath_output
+
+file_be   file_end   file_skip
+311000      425000      1000
+ntpoint_pfile  nxpoint  nypoint 
+ 100             1354      460 
+uinf          rhoinf
+1881.88       0.0172762       

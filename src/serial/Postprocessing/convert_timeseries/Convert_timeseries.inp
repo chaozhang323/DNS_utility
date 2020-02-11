@@ -1,0 +1,39 @@
+filepath
+/share/duan/duanl/TestDNS/testPHDF5/M14_fromPleiades/TIMESERIES/
+
+file_be   file_end  file_skip
+ 311000    350000    1000
+iread_kplane (0/1)  ibe_k   iend_k   ibuffer_k   num_kplane_inp  kplane_be  kplane_end
+     1              2242     2342       5              8            1          1
+iread_iplane (0/1)  jbe_i   jend_i   jbuffer_i   num_iplane_inp  iplane_be  iplane_end
+     0               1       31          30              1           1           1
+iread_jplane (0/1)  ibe_j   iend_j   ibuffer_j   num_jplane_inp  jplane_be  jplane_end 
+     0               1       81          40              1            1           1
+
+
+
+
+############# NOTHING IS READ BELOW #######################################
+
+file_be, file_end, file_skip: for the file begin #, end # and skip #
+
+
+
+(the code will read the attribute for the kplane index and the start, end, skip number for the range)
+  iread_kplane:              1 for convert kplane 
+            ibe_k, iend_k:   new file i-index range
+                 ibuffe_k:   new file i-index buffer
+           num_kplane_inp:   should be the # of kplane in the timeseries volume file
+    kplane_be, kplane_end:   choose the kplane number to convert (not the real k-index)
+
+
+
+
+  iread_iplane(0/1):         1 for convert iplane
+            jbe_i, jend_i:   j index range
+    jplane_be, jplane_end:   choose the iplane number to convert
+
+
+  iread_jplane(0/1):         1 for convert jplane
+            ibe_j, iend_j:   i index range
+    jplane_be, jplane_end:   choose the jplane number to convert

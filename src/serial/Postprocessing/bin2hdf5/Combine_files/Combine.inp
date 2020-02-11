@@ -1,0 +1,67 @@
+ntpoint     nskip     nt_buffer    i26Variable (0/1)
+31100          0          100      0
+filepath
+/share/duan/duanl/TestDNS/testPHDF5/M6_Coldwall/TIMESERIES_HDF5/
+fileoutput
+/share/duan/czb58/workspace/M6_ColdWall/TIMESERIES_new/
+
+iConvert_kp (0/1) inew_kp  iwrite_time_kp
+1                   1      1
+ibe_k    iend_k   iskip_k    jbe_k   jend_k    jskip_k    ibuffer_k  
+ 1181       2340      1          1      400        1          20
+num_kplane
+1
+1 11   
+
+iConvert_ip (0/1) inew_ip  iwrite_time_ip
+0                   1      0
+jbe_i  jend_i  jskip_i   kbe_i  kend_i  kskip_i  jbuffer_i
+ 1      400      1        1     460      1        20
+num_iplane
+1
+2156 350
+
+iConvert_jp (0/1)  inew_jp  iwrite_time_jp
+0                    1       0
+ibe_j  iend_j  iskip_j   kbe_j  kend_j  kskip_j  ibuffer_j
+ 200     400     10       1     130      1        10
+num_jplane
+1
+1   150
+
+############# NOTHING IS READ BELOW #######################################
+
+    ntpoint: the total number of time point
+      nskip: for the skip number of time point
+  nt_buffer: buffer size for the new TS file
+i26Variable: 0: new format TS data
+             1: old format TS data (26 variables)
+
+##############  kplane             
+       inew_kp: 0 write data to an existing file 
+                1 creat a new file 
+iwrite_time_kp: 0 do not write time to an existing file 
+                1 write time to an existing file
+    num_kplane: number of wall-normal locations (### please give the total number of kplanes)
+     ibuffer_k:   buffer size in the i-direction for kplane
+
+##############  iplane  
+       inew_ip: 0 write data to an existing file 
+                1 creat a new file 
+iwrite_time_ip: 0 do not write time to an existing file 
+                1 write time to an existing file
+    num_iplane: number of iplanes (### please give the total number of iplanes)
+     jbuffer_i:   buffer size in the j-direction for iplane
+
+##############  jplane  
+       inew_jp: 0 write data to an existing file 
+                1 creat a new file 
+iwrite_time_jp: 0 do not write time to an existing file 
+                1 write time to an existing file
+    num_jplane: number of jplanes (### please give the total number of jplanes)
+     ibuffer_j:   buffer size in the i-direction for jplane
+
+
+
+
+

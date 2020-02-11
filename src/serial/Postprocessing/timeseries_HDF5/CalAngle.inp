@@ -1,0 +1,36 @@
+dt_sample  uinf      rhoinf  Tinf(k)
+ 1.5e-7    1882.68   0.015    55.0
+ireadVOL(0/1)     
+   1                  
+ntpoint     nskip       
+ 100        0              
+file_be     file_end    file_skip
+19500       19500       1500
+filename
+/share/duan/duanl/Acoustics/M14_Acoustics/NarrowSpan/Acoustic/M14_box2/run8_box2/TIMESERIES/
+##########################################################################
+ iread_iplane(0/1)
+ 1
+ jbe       jend        kbe       kend
+ 1         460           1         600
+ jbe_DNS  jend_DNS  jskip_DNS  kbe_DNS  kend_DNS   kskip_DNS  jbuffer
+ 1           460        1       1          600     1           20
+ num_iplane  iplane_be iplane_end
+ 1               1        1
+ 1400
+############# NOTHING IS READ BELOW #######################################
+
+             npath: # of file path
+          ireadVOL: read directly from timeseries volume
+iCalAcousticSource: calculate Acoustic Source term
+
+ntpoint: # of time point in each timeseries volume
+
+num_kplane, num_jplane, num_iplane: should be the total numbuer of the timeseries (k,j,i) planes
+
+kplane_be, kplane_end:
+jplane_be, jplane_end:
+iplane_be, iplane_end:  the local index in the TimeSeires volume files (should be 1,2,3 ...)
+
+
+

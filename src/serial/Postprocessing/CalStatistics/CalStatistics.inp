@@ -1,0 +1,26 @@
+icylin    iWall   iFlow    iVis
+0          1	   1       1
+uinf       Tinf     zfreestream (in local delta)
+870.4      55        2.0
+gridfile
+../AVERAGE/AveAcousticStat_GridMetrics.h5
+flowfile
+../AVERAGE/AveAcousticStat_timeave00163000-00557000.h5
+outfile
+AveAcousticStat_timeave00163000-00557000
+
+############# NOTHING IS READ BELOW #######################################
+icylin: cylinderical coordinate
+iWall: 1 -- bottom wall
+       2 -- top wall
+       3 -- double wall (calculate statistics only for lower wall)
+iFlow  1 -- air
+       2 -- nitrogen
+iVis   1 -- sutherland law (air)
+       2 -- keyes law (air)
+       3 -- keyes law (nitrogen)
+uinf, Tinf: reference variables at freestream (not actually use)
+zfreestream: integration height (in local delta)
+gridfile: grid information for 2D acoustic file
+flowfile: name of 2D acoustic file (AveAcousticStat_timeave00056000-00094000.h5)
+outfile: name of the new acoustic file (follow the name convention of flowfile)

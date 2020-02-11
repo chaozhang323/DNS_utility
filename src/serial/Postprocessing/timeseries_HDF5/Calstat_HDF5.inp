@@ -1,0 +1,61 @@
+dt_sample  uinf      rhoinf    fl(Hz)  fu(Hz)
+ 1.5e-7    1882.68   0.015      -10.    1.e30
+MolecularWeight(kg/kmole)
+28.97
+iFileType(0/1/2)    iCalAcousticSource(0/1)
+   1                      0
+ntpoint     nskip       
+ 100        0              
+file_be     file_end    file_skip
+19500       19500       1500
+filename
+/share/duan/duanl/Acoustics/M14_Acoustics/NarrowSpan/Acoustic/M14_box2/run8_box2/TIMESERIES/
+##########################################################################
+iread_kplane (0/1)
+1
+ibe       iend    jbe     jend          
+3         1498    1       460            
+ibe_DNS  iend_DNS iskip_DNS jbe_DNS jend_DNS  jskip_DNS   ibuffer
+1         1500      1         1       460        1         5
+num_kplane  kplane_be  kplane_end
+ 13              12        12
+ 1  11  29   85   164   255   299   343  387 431  475  519  563
+##########################################################################
+ iread_jplane(0/1)
+ 0
+ ibe       iend        kbe       kend
+ 1045      1049        1         10
+ ibe_DNS  iend_DNS  iskip_DNS  kbe_DNS  kend_DNS   kskip_DNS 
+ 1043       2396        1           1          460     1
+ num_jplane jplane_be jplane_end
+ 1            1          1
+ 230
+##########################################################################
+ iread_iplane(0/1)
+ 1
+ jbe       jend        kbe       kend
+ 1         460           1         600
+ jbe_DNS  jend_DNS  jskip_DNS  kbe_DNS  kend_DNS   kskip_DNS  jbuffer
+ 1           460        1       1          600     1           20
+ num_iplane  iplane_be iplane_end
+ 1               1        1
+ 1400
+############# NOTHING IS READ BELOW #######################################
+
+             npath: # of file path
+iFileType: 0 -- read converted TIMESERIES files (old format)
+           1 -- read TIMESERIES volume (filepath/timeseries_xxxxxxxx.h5,        filepath/DNS_index.h5, filepath/series_time_ascii.dat)  
+           2 -- read TIMESERIES volume (filepath/timeseries_kplane_xxxxxxxx.h5, filepath/DNS_index.h5, filepath/series_time_ascii.dat) 
+
+iCalAcousticSource: calculate Acoustic Source term
+
+ntpoint: # of time point in each timeseries volume
+
+num_kplane, num_jplane, num_iplane: should be the total numbuer of the timeseries (k,j,i) planes
+
+kplane_be, kplane_end:
+jplane_be, jplane_end:
+iplane_be, iplane_end:  the local index in the TimeSeires volume files (should be 1,2,3 ...)
+
+
+

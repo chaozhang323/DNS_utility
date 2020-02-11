@@ -1,0 +1,34 @@
+ilength_X    ilength_Y
+1            1
+threshold
+4
+0.05, 0.1, 0.15, 0.2
+filename (corrxy_*.dat)
+../corrxy_i0387-0447_timeave00022000-00053000_kplane1000-0002.dat
+imax    jmax    iref_grd    icylin
+161     4096    417         1
+nzones    nvars_all    nheader
+6         17           2
+1000,761,395,160,50,2   ! k plane location (zone information)
+nvars (dx, dy, corr_dim, varrms_ref, varrms)
+5	! no need to change this number
+1,2,3,5,6
+gridfilename
+../../../AveAcousticStat_GridMetrics.h5
+
+################### README ######################
+Calculate integral length for correlation xy data
+-------------------------------------------------
+ilength_X, ilength_Y: calculate length scale in X (streamwise)/Y (spanwise) direction
+threshold: list of threshold value for correlation coefficient (eg, 0.1)
+filename: file name of corrxy (ASCII data format)
+imax, jmax: imax & jmax in file
+iref_grd: reference i index for the correlation (average of ixxxx-xxxx)
+icylin: cylinder coordinate
+nzones: # of headers in file
+        k plane index for each zone
+nvars_all: # of total variables in file
+nheader: # of header lines in file
+nvars: 5 variables containing dx, dy, corr_dim, varrms_ref, varrms
+       column index of dx, dy, corr_dim, varrms_ref, varrms
+gridfilename: file name of AveAcousticStat_GridMetrics.h5

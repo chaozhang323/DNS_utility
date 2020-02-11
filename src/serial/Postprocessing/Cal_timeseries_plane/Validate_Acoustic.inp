@@ -1,0 +1,12 @@
+uinf          rhoinf           Tinf
+1881.88       0.0172762         300.0
+filepath
+/share/duan/czb58/Acoustics/M14_Acoustics/AveAcousticStat_timeave0310-0425Stat.h5
+filepath_output
+/share/duan/duanl/TestDNS/testPHDF5/M14_fromPleiades/AVERAGE/AveAcousticStat_GridMetrics.h5
+   ibe        iend       kbe        kend
+    1         2500        1         540 
+num_kinf
+  2
+ 460 510
+

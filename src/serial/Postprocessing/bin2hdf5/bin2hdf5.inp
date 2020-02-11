@@ -1,0 +1,60 @@
+ntpoint     nskip         iascii
+4          0            0
+filename
+/share/duan/czb58/workspace/DNSmst_M14_run_correct/TIMESERIES_old/
+
+iread_kplane (0/1)    convert_file_be_k
+1                           1
+ibe_k     iend_k   jbe_k   jend_k   nodes_k   ibuffer_k  
+ 200      400       1      291        30         50
+num_kplane
+2
+1 11   
+
+iread_iplane (0/1)   convert_file_be_i
+0                          1
+jbe_i  jend_i  kbe_i  kend_i  nodes_i  jbuffer_i
+ 150    300      1     129       4        30
+num_iplane
+2
+300 350
+
+iread_jplane (0/1)    convert_file_be_j
+0                         1
+ibe_j  iend_j   kbe_j  kend_j  nodes_j  ibuffer_j
+ 200     400      1      130      5        10
+num_iplane
+2
+1   150
+
+############# NOTHING IS READ BELOW #######################################
+
+ntpoint: the total number of time point
+      
+ibe_k, iend_k, jbe_k, jend_k, nodes_k: 
+       please find this info in file kplane_index.dat
+
+jbe_i, jend_i, kbe_i, kend_i, nodes_i: 
+       please find this info in file iplane_index_ixxxx.dat
+
+ibe_j, iend_j, kbe_j, kend_j, nodes_j:
+       please find this info in file jplane_index_jxxxx.dat
+
+num_kplane:
+       number of wall-normal locations for computing the spectrum
+       (indexes of streamwise-spanwise planes)
+
+convert_file_be_k, convert_file_be_i, convert_file_be_j:
+       begin number for the converted timeseries files. (could be 1,2,3,4 ...)
+       The default number is 1.
+
+ibuffer_k:   buffer size in the i-direction for kplane
+
+jbuffer_i:   buffer size in the j-direction for iplane
+
+ibuffer_j:   buffer size in the i-direction for jplane
+
+
+
+
+

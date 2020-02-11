@@ -1,0 +1,43 @@
+icorrxy(0/1)   icorrxz(0/1)   iRead_AveAcoustic_GridMetric(0/1)
+ 1              0              1
+ Gird file name
+./AveAcousticStat_GridMetrics.h5
+######### streamwise-spanwise correlation file information########
+filename
+../corrxy_i1450-1500_timeave00272000-00424000.dat
+imax  jmax  TotZone 
+161   800   10         
+variable_index ! 1 for Cpp; 2 for Cuu
+2
+th(threshold)
+0.2
+######### streamwise-wall-normal correlation file information########
+filename
+../corrxz_i1450-1500_timeave00272000-00424000.dat
+ jmax  kmax  TotZone
+ 800   10     10        
+variable_index ! 1 for Cpp; 2 for Cuu
+2
+th(threshold)
+0.2
+
+###########  Nothing is read below ##################
+icorrxy(0/1) : calculate the length scale using streamwise-spanwise    correlation file
+icorrxz(0/1) : calculate the length scale using streamwise-wall-normal correlation file
+
+iRead_AveAcoustic_GridMetric(0/1): 1 read AveAcousticStat_GridMetrics.h5 file
+
+variable_index: 1 for Cpp; 2 for Cuu
+
+th: nondimensional threshold value
+
+
+The second part (streamwise-wall-normal correlation file) has not been completed.
+
+
+
+
+         
+         
+         
+
