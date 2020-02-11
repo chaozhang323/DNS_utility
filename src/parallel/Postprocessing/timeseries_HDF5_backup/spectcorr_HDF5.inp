@@ -1,0 +1,78 @@
+npath       ireadVOL(0/1)     iAverage_output(0/1)    buffer_MulVol  
+1             1                  0                        1
+##########################################################
+ntpoint     nskip         
+100         0 
+file_be     file_end     file_skip
+311000        452000       1000
+filepath
+/share/duan/duanl/Acoustics/M14_Acoustics/NarrowSpan/Acoustic/M14_box1/TIMESERIES_1/
+##########################################################
+icalPSD    icalcorrxt    icalcorrxy   icalphasespeed
+ 1           0            0             0        
+nperiod      ioverlap     iwindow  dt_sample 
+835            1            1       1.5e-7       
+
+nvar_output
+1
+4          !varindex_output
+
+iread_kplane (0/1)
+1
+ibe       iend    jbe     jend       ixwindowl  ixwindowr    dx_sample            dy_sample
+2300      2359      1      460          0         0          0.960384E-03       0.4793028332244E-03
+ibe_fromDNS  iend_fromDNS iskip_fromDNS jbe_fromDNS jend_fromDNS  jskip_fromDNS  ibuffer_fromDNS
+1043             2396        1              1          460        1                5
+num_kplane   kplane_be   kplane_end
+ 1             1            1
+ 1  11  29  85  164  255  299  343
+
+############# NOTHING IS READ BELOW #######################################
+
+ireadVOL: 0: read convereted data file with ibuffer_fromDNS
+          1: read timeseries volume
+iAverage_output: 0: is used for icalPSD. (there will be only one output file)
+                 1: is used for icalcorrxt and icalcorrxy. (the output files will be separated)
+buffer_MulVol: is used for corrxt. For each timeseries volume, the total number of timepoint is (2*buffer_MulVol + 1)
+          
+file_be, file_end, file_skip will not be used if ireadVOL = 0
+
+
+nperiod: used to determine the number of (temporal) data points
+         per segments
+         if ioverlap = 0, # of data points per segments = nperiod
+         if ioverlap = 1, # of data points per segments = 2*nperiod
+
+
+iwindow: (see modFFT.f90)
+    0: top hat
+    1: hann
+    2: flat hann
+
+ibe, iend, isp: 
+       Streamwise range of spatial points for averaging the statistics
+
+jbe, jend, jsp: 
+       Spanwise range of spatial points for averaging the statistcs
+
+ibe_fromDNS,  iend_fromDNS, iskip_fromDNS
+      Streamwise range of spatial points for available DNS timeseries output
+
+jbe_fromDNS,  jend_fromDNS, jskip_fromDNS
+      spanmwise range of spatial points for available DNS timeseries output
+
+ibuffer_fromDNS
+      streamwise buffer size of DNS timeseries output files
+num_kplane:
+       number of wall-normal locations for computing the spectrum
+       (indexes of streamwise-spanwise planes)
+       
+kplane_be, kplane_end : local index in the TimeSeries volume
+       
+
+nvar_output: # of output variables
+varindex_ouput: output variable index  
+               kplane: (/'u','v','w','p','t','uk','vk','wk','pk','tk')
+               iplane: (/'u','v','w','p','t','ui','vi','wi','pi','ti')
+               jplane: (/'u','v','w','p','t','uj','vj','wj','pj','tj')
+

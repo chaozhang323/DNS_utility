@@ -1,0 +1,10 @@
+#!MC 1400
+# Created by Tecplot 360 build 14.0.2.35002
+$!ALTERDATA 
+  EQUATION = '{delta0}=0.036'
+$!ALTERDATA 
+  EQUATION = '{xod}={xdiff}/{delta0}'
+$!ALTERDATA 
+  EQUATION = '{zod}={z}/{delta0}'
+$!ALTERDATA 
+  EQUATION = '{Corr}={Corr_dim}/({varrms}*{varrms_ref}+1.0e-30)'

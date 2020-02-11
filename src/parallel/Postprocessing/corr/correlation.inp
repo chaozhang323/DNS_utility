@@ -1,0 +1,253 @@
+gridfilename
+../volume/grid.h5
+datadir
+../volume/flowdata_
+gname (groupname)
+/
+##########################################################
+imax   jmax    kmax
+1600    800     500
+iil     iih     stride  itimeave
+106000 	424000	 1000      1
+MolecularWeight(kg/kmole)
+28.97
+num_output
+ 1
+ 4          ! variable index
+##########################################################
+icalcorrxz	   
+ 0
+num_kref
+ 1
+ 2 11 31 45 67 86 97 107 116 123 129 134 140 149 153 158 160 166 170 174 179 183 187 192 196 200 208 217 321 364  (kref location indices, # of indices should be equal to 'num_kref')
+ibe_ave  iend_ave   kbe   kend   iwinl    iwinr
+  200      210       1     100    10      10
+##########################################################
+icalcorrxy
+ 0
+num_kplanes
+ 1
+ 2 11 31 45 67 86 97 107 116 123 129 134 140 149 153 158 160 166 170 174 179 183 187 192 196 200 208 217 225 231 234 242 251 259 268 276 321 364
+ibe_ave  iend_ave   iwinl   iwinr
+ 200       210       2       2
+##########################################################
+icalcorryz
+ 0
+num_kref 
+  40
+  1 2 5 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 (kref location indices, # of indices should be equal to 'num_kref')
+ibe_ave iend_ave   kbe   kend
+ 1400    1450       1    450
+##########################################################
+icalcorr3D
+ 0
+num_kplanes
+ 1
+ 1    (kref location)
+ibe_ave  iend_ave  iwinl  iwinr  kbe  kend
+ 200     210        2       2    1     20
+##########################################################
+icalWNSD_ky
+ 0
+num_planes
+ 1
+ 1 2 5 8 10 12 14 16 18 2 
+ibe_ave   iend_ave
+3000       3000
+##########################################################
+icalWNSD_kx  iwindow   
+ 0              0
+num_kplanes
+ 1
+ 1 2 5 8 10 12 14 16 18 2 
+ibe   iend
+2900  3000
+
+   
+
+######## NOTHING IS READ BELOW #############################
+The parallel program computes quantities used to derive two-point correlations,
+including C_pp, C_pu, C_pv, C_pw, C_uu (with the help of 'corrxz.eqn', 'corrxy.eqn').
+
+gname: for flowdata files the group name should be '/' 
+
+num_output: # of output variables
+              1    2     3     4     5     6     7         8     9     10   11    12     13     14
+          ( C_uu, C_vv, C_ww, C_pp, C_TT, C_rr, C_P0P0, C_T0T0, C_ru, C_rv, C_rw, C_uv, C_uw, C_vw )
+
+
+For running the program with eg. 20 CPUs
+"mpiexec -np 20 ./correlation < correlation.inp" or
+"mpirun -np 20 ./correlation < correlation.inp"
+     Warning: might need to reset maximum allowed depth larger than the default by
+              setenv MPI_TYPE_DEPTH 2048 (for C shell)
+
+2D Domain decomposition (grid processor): Make sure that min(nx,ny) >= p_row and min(ny,nz) >= p_col
+For corrxy: nx = num_kref; ny = iend - ibe + 1; nz = jmax
+            z-pencil is used
+            if(numprocs >= num_kref) p_row = num_kref; p_col = numprocs/num_kref
+            if(numprocs < num_kref)  p_row = numprocs; p_col = 1
+
+For corrxz: nx = kend-kbe+1; ny = (iend+iwinr) - (ibe-iwinl) + 1; nz = jmax
+            x-pencil is used
+            p_row = 1
+            p_col = numprocs
+
+For corryz: nx = kend-kbe+1; ny = iend-ibe+1; nz = jmax
+            z-pencil is used
+            p_row = 1
+            p_col = numprocs
+
+For corr3D: nx = kend-kbe+1; ny = iend - ibe + 1; nz = jmax
+            z-pencil is used
+            p_row = numprocs
+            p_col = 1 
+
+For WNSD_ky: nx = num_kref; ny = iend - ibe + 1; nz = jmax
+            z-pencil is used
+            p_row = numprocs
+            p_col = 1
+
+For WNSD_kx: nx = num_kref; ny = iend - ibe + 1; nz = jmax
+            y-pencil is used
+            p_row = numprocs 
+            p_col = 1
+
+
+The required input data are
+DNS grid ("grid.h5") and
+DNS volumes ("flowdata_xxxxxxxx.h5").
+
+The domain decomposition & FFT (if required) is based upon 2DECOMP&FFT
+(http://www.2decomp.org/index.html)
+
+datadir
+   directory path for flow grid/solution files (REST/)
+
+imax    jmax    kmax
+   number of grid points in the x, y, z directions, respectively
+
+iil, iih, stride, itimeave(0/1)
+   Flags to specify ranges of flowfield index for computing statistics
+   iil: start flowfield index
+   iih: end flowfield index
+   stride: stride of flowfiled index
+   itimeave: 0 for outputing statistics for each single volume
+             1 for averaging statistcis of the range of volumes specified by iil, iih
+
+MolecularWeight(kg/kmole): air      28.97
+                         nitrogen   28.01
+
+icalcorrxz    num_kref  kref   ibe_ave   iend_ave   jbe_ave   jend_ave   kbe  kend iwinl   iwinr
+   Flags for calculating correlation statistics in xz-plane ("corrxz_ixxxx-xxxx_xxxxxxxx.dat" for itimeave = 0
+   or "corrxz_ixxxx-xxxx_timeavexxxxxxxx-xxxxxxxx_krefxxxx-xxxx_X.dat" for itmeave = 1)
+      icalcorrxz
+         whether or not (1/0) to compute correlation statistics in xz plane
+      num_kref
+         number of reference k locations
+      kref
+         indexes for k reference locations (number of indexes should be equal to num_kref)
+      ibe_ave, iend_ave
+         i-index ranges for averaging
+      jbe_ave, jend_ave
+         j-index ranges for averaging (jbe_ave = 1, jend_ave = jmax for most cases)
+      kbe, kend
+         k-index ranges for correlation in z dir
+      iwinl, iwinr
+         left & right window sizes for correlation in x dir
+
+icalcorrxy    num_kplanes  kplane   ibe_ave   iend_ave   jbe_ave   jend_ave 
+   Flags for calculating correlation statistics in xy-plane ("corrxy_ixxxx-xxxx_xxxxxxxx.dat" for itimeave = 0
+   or "corrxy_ixxxx-xxxx_timeavexxxxxxxx-xxxxxxxx_kplanexxxx-xxxx_x.dat" for itmeave = 1)
+      icalcorrxy
+         whether or not (1/0) to compute correlation statistics in xy plane
+      num_kplanes
+         number of k locations for calculating correlation statistics
+      kplane
+         indexes for k locations (number of indexes should be equal to num_kplanes)
+      ibe_ave, iend_ave
+         i-index ranges for averaging
+      iwinl, iwinr
+         left & right window sizes for correlation in x dir
+      NOTE: for icalcorrxy = 1, the number of CPUs (numprocs) should satisfy mod(numprocs,num_kref) = 0 (if numprocs >= num_kref)
+                                or mod(num_ref,numprocs) = 0 (if numprocs < num_kref)
+
+icalcorryz    num_kref  kref   ibe_ave   iend_ave   jbe   jend   kbe   kend
+     Flags for calculating correlation statistics in yz-plane 
+      icalcorryz
+         whether or not (1/0) to compute correlation statistics in yz plane
+      num_kref
+         number of reference k locations
+      kref
+         indexes for k locations (number of indexes should be equal to num_kref)
+      ibe_ave, iend_ave
+         i-index ranges for averaging
+      #jst, jend
+      #   j-index ranges for averaging (jst = 1, jend = jmax for most cases)
+      kst, kend
+         k-index ranges for correlation in z dir
+      NOTE: for icalcorryz = 1, the number of CPUs (numprocs) should satisfy numprocs <= (iend - ist + 1 )
+
+icalcorr3D    num_kplanes  kplane   ibe_ave   iend_ave   jbe   jend   kbe   kend
+     Flags for calculating correlation statistics in 3D volume
+      icalcorr3D
+         whether or not (1/0) to compute correlation statistics in 3D
+      num_kplanes
+         number of reference k locations
+      kplane
+         indexes for k locations (number of indexes should be equal to num_kplanes)
+      ibe_ave, iend_ave
+         i-index ranges for averaging
+      jbe, jend
+         j-index ranges for correlation in y(j) dir (jbe = 1, jend = jmax for most cases)
+      kst, kend
+         k-index ranges for correlation in z(k) dir
+ 
+icalWNSD_ky    num_kplanes  kplane   ibe_ave   iend_ave   jbe  jend
+     Flags for calculating wavenumber spectrum in y(j)-direction 
+      icalWNSD_ky
+         whether or not (1/0) to compute wavenumber spectrum in y(j)-direction 
+      num_kplanes
+         number of reference k locations
+      kplane
+         indexes for k locations (number of indexes should be equal to num_kplanes)
+      ibe_ave, iend_ave
+         i-index ranges for averaging
+      jbe, jend
+         j-index ranges for spectrum (jbe = 1, jend = jmax for most cases)   
+      ky = 2pi*(n-1)/Length_y
+
+       
+ icalWNSD_kx    num_kplanes  kplane  ibe  iend jbe_ave  jend_ave    
+     Flags for calculating wavenumber spectrum in x(i)-direction 
+      icalWNSD_kx
+         whether or not (1/0) to compute wavenumber spectrum in x(i)-direction 
+      num_kplanes
+         number of reference k locations
+      kplane
+         indexes for k locations (number of indexes should be equal to num_kplanes)
+      ibe, iend
+         i-index ranges for spectrum
+      jbe_ave, jend_ave
+         j-index ranges for averaging (jbe_ave = 1, jend_ave = jmax for most cases)
+      kx = 2pi*(n-1)/Length_x
+      iwindow: 0: top hat
+               1: hann
+               2: flat hann
+               3: Hamming 
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+

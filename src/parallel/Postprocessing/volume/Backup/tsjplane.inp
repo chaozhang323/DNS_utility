@@ -1,0 +1,14 @@
+datadir
+/share/duan/duanl/TestDNS/testPHDF5/M14_fromPleiades/TIMESERIES/
+uinf    delta    utau      ztau
+1174.17592360935   0.03151  69.1333277220285   6.804228303799195E-005
+iil     iih	stride 
+311000	311000	  1000   
+iplane_yz   jst  jend  jsp      kst   kend  ksp
+  1         1     460   1        1     460   1
+jst_tsiplane, jend_tsiplane, jsp_tsiplane, kst_tsiplane, kend_tsiplane, ksp_tsiplane, nt, nt_skip 
+  1               460             1            1             460             1        100  20
+iplane_xz  ist   iend   isp     kst   kend   ksp
+  0          1043  2396   1       1     460    1
+ist_tsjplane, iend_tsjplane, isp_tsjplane, kst_tsjplane, kend_tsjplane, ksp_tsjplane  nt  nt_skip
+   1043            2396            1            1              460            1       100   20

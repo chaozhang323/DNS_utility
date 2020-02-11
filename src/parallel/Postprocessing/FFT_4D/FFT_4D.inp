@@ -1,0 +1,102 @@
+iFFT4D  iFFT3D
+  1       0
+################### Required files path and name #########
+gridfilename
+../volume/grid.h5
+datadir
+../volume/flowdata_
+gname (groupname)
+/
+################### Files dimension and number ###########
+imax   jmax    kmax
+1381   320     630
+file_beg  file_end   file_skip   itimeave
+340025 	  340125     25            0
+MolecularWeight(kg/kmole)
+28.97
+################### Major control parameters #############
+p_row   p_col
+ 2       2
+ibe   iend   jbe  jend  kbe  kend
+801    830    1    20   301  310
+num_output
+1
+4       ! variable index
+   
+
+######## NOTHING IS READ BELOW ###########################
+The parallel program computes 3D or 4D forward FFT
+
+iFFT4D: calculate 4D forward FFT (kx,ky,kz,omega)
+    ### The output file dimension (kmax_rd,imax_rd,jmax_rd,num_file/2+1) 
+
+iFFT3D: calculate 3D forward FFT (kx,ky,kz)
+    ### The output file dimension (kmax_rd,imax_rd,jmax_rd/2+1)
+
+    imax_rd, jmax_rd, kmax_rd: the selected domain size in i, j, k direction
+                     num_file: # of files for reading
+
+##########################################################
+The required input data are:
+   grid file with varialbes 'x', 'y', 'z'.
+   data files with variables 'u', 'v', 'w', 'p', 'T' ( such as "flowdata_xxxxxxxx.h5", "timeseriesVol_xxxxxxxx.h5").
+   gname: the group name for the data files. 
+datadir
+   directory path for dataset files
+##########################################################
+imax    jmax    kmax
+   number of grid points in the x, y, z directions, respectively
+   In the code, the file has dimension (kmax,imax,jmax)
+file_beg, file_end, file_skip
+     file_beg: start flowfield index
+     file_end: end flowfield index
+    file_skip: stride of flowfiled index    
+     itimeave: used for iFFT3D=1      
+MolecularWeight(kg/kmole): air      28.97
+                         nitrogen   28.01
+##########################################################
+The domain decomposition & FFT (if required) is based upon 2DECOMP&FFT
+(http://www.2decomp.org/index.html)
+
+p_row, p_col: processors in row and column.
+2D Domain decomposition (grid processor): Make sure that min(nx,ny) >= p_row and min(ny,nz) >= p_col
+    nx = kend-kbe+1; ny = iend-ibe+1; nz = jend-jbe+1
+  
+    z-pencil is used to read the data files.
+    z-pencil is used to calculate the 4D FFTs.
+
+    x-pencil is used to write the output files
+
+ibe, iend, jbe, jend, kbe, kend
+      ibe, iend
+         i-index ranges for reading
+      jbe, jend
+         j-index ranges for reading
+      kbe, kend
+         k-index ranges for reading
+
+num_output: # of variables for output. 
+            index --  1    2    3    4    5 
+        variables -- 'u', 'v', 'w', 'p', 'T'
+
+##########################################################
+
+     
+
+      iwindow: 0: top hat
+               1: hann
+               2: flat hann
+               3: Hamming 
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+

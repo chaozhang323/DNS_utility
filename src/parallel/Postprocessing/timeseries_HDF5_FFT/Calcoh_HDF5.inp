@@ -1,0 +1,52 @@
+icorrxt   iCalCoh
+    0          1              
+##########################################################
+file_be     file_end     file_skip
+311000        452000       1000
+filepath
+/share/duan/duanl/Acoustics/M14_Acoustics/NarrowSpan/Acoustic/M14_box1/TIMESERIES_1/
+##############################################################################   
+nsection   ioverlap     iwindow     
+  12         1            1  
+##########################################################
+ibe       iend    jbe     jend      ixwindowl  ixwindowr   jywindowr
+2900      2903     1      500          0         2           1  
+num_kplane
+ 1
+ 1     
+ 
+
+
+############# NOTHING IS READ BELOW #######################################
+Program to compute correlation and coherence
+
+icorrxt(0/1): calculate x-t correlation
+iCalCoh(0/1): calculate 2D (x-y-f) coherence
+nsection: the number of bins in time space
+ioverlap: 1 means compute spectrum using overlapped sections, i.e. the actual section will be 2*nperiod
+iwindow: (see modFFT.f90)
+    0: top hat
+    1: hann
+    2: flat hann
+    3: Hamming
+      
+ibe, iend: 
+       Streamwise range of spatial points for averaging the spectrum
+
+jbe, jend: 
+       Spanwise range of spatial points for averaging the spectrum
+     jpointAve_be: begin number for spanwise averaging. 
+
+num_kplane:
+       number of wall-normal locations for computing the spectrum
+       (indexes of streamwise-spanwise planes)
+
+ixwindowl, ixwindowr: left & right window sizes for correlation in x dir
+jywindowr: right window sizes for correlation in y dir (only works for iCalcoh=1)
+
+The number of CPUs (numprocs) should satisfy mod((jend-jbe+1),numprocs) = 0
+
+
+
+
+

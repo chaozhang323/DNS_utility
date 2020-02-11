@@ -1,0 +1,27 @@
+icrossx icrossxt  buffer_MulVol
+  1        0       0
+npath   ireadVOL
+  1        1 
+##########################################################
+ntpoint   nskip
+100       0
+file_be   file_end  file_skip
+311000     311000    1000
+filepath
+/share/duan/duanl/Acoustics/M14_Acoustics/NarrowSpan/Acoustic/M14_box1/TIMESERIES_1/
+##########################################################
+nperiod  ioverlap  iwindow  dt_sample
+20       1         1        1.5e-7
+
+nvar_output
+ 1
+ 4         ! varindex_output
+kloc_ref  kloc_ref_index   varindex_ref
+  11          2            4
+ibe   iend   jbe   jend   ixwindowl  ixwindowr  dx_sample           dy_sample
+2300   2300   1    460    80          80          0.960384E-03       0.4793028332244E-03 
+ibe_fromDNS  iend_formDNS  iskip_fromDNS  jbe_fromDNS  jend_fromDNS  jskip_fromDNS   ibuffer_fromDNS
+1043         2396          1              1             460           1              5
+num_kplane  kplane_be  kplane_end
+ 1            1           1
+ 1 11      

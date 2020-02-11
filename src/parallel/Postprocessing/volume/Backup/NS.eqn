@@ -1,0 +1,10 @@
+#!MC 1400
+# Created by Tecplot 360 build 14.0.2.35002
+$!ALTERDATA 
+  EQUATION = '{delta}=0.044'
+$!ALTERDATA 
+  EQUATION = '{xod}={x}/{delta}'
+$!ALTERDATA 
+  EQUATION = '{zod}={z}/{delta}'
+$!ALTERDATA 
+  EQUATION = '{NS}=0.8*exp(-10.0*{grad_rho}/79.45)'

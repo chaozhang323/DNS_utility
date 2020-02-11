@@ -1,0 +1,57 @@
+datadir
+/share/duan/czb58/test_DNS/testPHDF5/REST/
+uinf    delta    utau      ztau
+1174.17592360935   0.03151  69.1333277220285   6.804228303799195E-005
+iil	iih	stride  iformat(0/1)
+0	0	 1000      1
+ivolume	   ist   iend	isp     jst   jend   jsp    kst   kend  ksp
+1	   1      10	 2       1     30      1     1    80    2
+iplane_xy  ist   iend   isp     jst   jend   jsp
+0          200    320   1      1     300       1
+1    (xy-plane indices, # of indices should be equal to 'iplane_xy')
+iplane_yz  jst   jend   jsp   kst   kend   ksp
+0          1     300      1    1    80    1
+253 273 293   (yz-plane indices, # of indices should be equal to 'iplane_yz'))
+iplane_xz  ist   iend   isp     kst   kend   ksp
+0           1    30      1       1     80      1
+161 177   (xz-plane index,  # of indices should be equal to 'iplane_xz')
+
+######## NOTHING IS READ BELOW #############################
+The program computes volumetric statistics or statistics in xy, xz, yz directions,
+including iso-surface of swirl, vorticity, density and pressure gradients
+
+datadir
+   directory path for flow solution files (flowdata_xxxxxxxx.sol)
+
+uinf, delta, utau, ztau
+   Reference values ( freestream velocity (m/s), boundary-layer thickness (m),
+   friction velocity (m/s), viscous length (m) )
+
+iil, iih, stride, iformat(0/1)
+   Flags to specify ranges of flowfield index for computing statistics
+   iil: start flowfield index
+   iih: end flowfield index
+   stride: stride of flowfiled index
+   iformat: 0 for .p3d format. 1 for .h5 format
+
+ivolume    ist   iend   isp   jst   jend   jsp    kst   kend  ksp
+   Flags for calculating volumeric statistics (volume_xxxxxxxx.dat)
+      ivolume
+	 whether or not (1/0) to compute volumetric statistics 
+      ist, iend, isp
+         i-index ranges
+      jst, jend, jsp
+         j-index ranges
+      kst, kend, ksp
+         k-index ranges
+
+iplane_xy  ist   iend   isp   jst   jend   jsp
+     Flags for calculating statistics in xy-plane (plane_xxxxxxxx_kxxxx.dat)
+
+iplane_yz  jst   jend   jsp   kst   kend   ksp
+     Flags for calculating statistics in yz-plane (plane_xxxxxxxx_ixxxx.dat)
+
+iplane_xz  ist   iend   isp   kst   kend   ksp
+     Flags for calculating statistics in xy-plane (plane_xxxxxxxx_jxxxx.dat)
+
+

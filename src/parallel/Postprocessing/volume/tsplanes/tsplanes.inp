@@ -1,0 +1,51 @@
+datadir
+/share/duan/duanl/TestDNS/testPHDF5/M14_fromPleiades/TIMESERIES_1/
+iil     iih	stride 
+311000	311000	  1000   
+p_row   p_col
+4       1
+iplane_yz   jst  jend  jsp      kst   kend  ksp
+  1         1     460   1        1     460   1
+jst_tsiplane, jend_tsiplane, jsp_tsiplane, kst_tsiplane, kend_tsiplane, ksp_tsiplane, nt, nt_skip 
+  1               460             1            1             460             1        100  20
+
+iplane_xz  ist   iend   isp     kst   kend   ksp
+  0          1043  2396   1       1     460    1
+ist_tsjplane, iend_tsjplane, isp_tsjplane, kst_tsjplane, kend_tsjplane, ksp_tsjplane  nt  nt_skip
+   1043            2396            1            1              460            1       100   20
+
+######## NOTHING IS READ BELOW #############################
+only one of iplane_yz and iplane_xz can be 1.
+
+############################################################
+iplane_yz(0/1) whether to calculate iplane grad_rho
+
+# the following info is for the output
+jst, jend, jsp: # for the start, end and skip in the j direction
+kst, kend, ksp: # for the start, end and skip in the k direction
+
+# the following info is for the dns output
+jst_tsiplane, jend_tsiplane, jsp_tsiplane: # for the start, end and skip in the j direction 
+kst_tsiplane, kend_tsiplane, ksp_tsiplane: # for the start, end and skip in the k direction
+nt: # of timesteps per file
+nt_skip:  # of skip for timesteps
+
+
+iplane_xz(0/1) whether to calculate jplane grad_rho
+
+# the following info is for the output
+ist, iend, isp: # for the start, end and skip in the i direction
+kst, kend, ksp: # for the start, end and skip in the k direction
+
+# the following info is for the dns output
+ist_tsjplane, iend_tsjplane, isp_tsjplane: # for the start, end and skip in the i direction 
+kst_tsjplane, kend_tsjplane, ksp_tsjplane: # for the start, end and skip in the k direction
+nt: # of timesteps per file
+nt_skip:  # of skip for timesteps
+
+
+
+
+
+
+

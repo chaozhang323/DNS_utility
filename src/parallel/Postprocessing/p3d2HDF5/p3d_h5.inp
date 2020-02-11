@@ -1,0 +1,74 @@
+imax  jmax  kmax       kioplane         inode      MW(molecular weight)    
+280   600    100         10               8           28.97               
+iConvert_grid(0/1)     iFormat_grid   
+  0                      0                
+iConvert_flow(0/1)     iFormat_flow          
+  0                      0               
+iConvert_inlet(0/1)    iFormat_inlet  
+  0                      0   
+ireadRescalemean(0/1)  irhoinlet        istencilsize
+  0                      0                   4
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+File path for grid:
+gridfile_rd
+./gridp3d.grd
+gridfile_wt
+./grid.h5
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+File path for flowdata: 
+flowpath_rd
+./
+flowpath_wt
+./
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The following is the flowdata number:
+file_be		file_end	file_skip
+0               0               1
+
+######################333######################################
+imax,  jmax,  kmax
+1st, 2nd, and 3rd dimension of the input file
+
+Mw:	Molecular weight 
+
+iConvert_grid, iConvert_flow, iConver_inlet :  0 -- not convert
+                                               1 -- convert
+
+iFormat_grid, iFormat_flow   :  0 -- convert plot3d file to HDF5
+                                1 -- convert HDF5 file to plot3d
+                                2 -- separate single HDF5 grid and flowdata into multiple files, each has only one variable
+                                3 -- separate single HDF5 grid and flowdata into multiple files using kioplane
+                                   # kioplane will be used when iFormat = 3
+                                4 -- separate single HDF5 grid and flowdata into multiple files using inode
+                                   # inode will be used when iFormat = 4 
+
+iFormat_inlet: 0 -- convert plot3d file to HDF5
+               1 -- convert HDF5 file to plot3d
+               2 -- convert plot3d file to plot3d
+                    irhoinlet=1 convert 'u,v,w,p,t' to 'u,v,w,rho,t'
+                    irhoinlet=2 convert 'u,v,w,rho,t' to 'u,v,w,p,t'
+
+irhoinlet:  0 reading flowdata file and take the 1st i-plane
+            1 reading 'inlet.sol' that contains u, v, w, p,T
+            2 reading 'inlet.sol' that contains u, v, w, rho, T
+            only required if iConvert_inlet = 1
+
+
+ireadRescalemean(0/1): 1 read plot3d format rescalemean file
+# The file name for rescalemean is: filepath_rd + 'rescalemean_xxxxxxxx.sol'
+# istencilsize: will be used when ireadRescalemean=1
+
+
+gridfile_rd, gridfile_wt : gridfile path for read and write
+
+flowpath_rd, flowpath_wt : flow path for read and write
+
+file_be, file_end, file_skip: flow file begin, end and skip number
+
+
+
+
+                               
+                               
+                               
+                               

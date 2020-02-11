@@ -1,0 +1,8 @@
+imax
+400
+jmax
+300
+kmax
+130
+fn1
+/share/duan/czb58/test_DNS/testPHDF5/REST_400x300x130/gridp3d.grd

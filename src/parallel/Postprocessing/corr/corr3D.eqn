@@ -1,0 +1,13 @@
+#!MC 1400
+# Created by Tecplot 360 build 14.0.2.35002
+# '201' is the center of imax, '160' is the center of jmax
+$!ALTERDATA 
+  EQUATION = '{delta0}=0.032'
+$!ALTERDATA 
+  EQUATION = '{xod}={xdiff}/{delta0}'
+$!ALTERDATA 
+  EQUATION = '{yod}={ydiff}/{delta0}'
+$!ALTERDATA 
+  EQUATION = '{zod}={z}/{delta0}'
+$!ALTERDATA 
+  EQUATION = '{Corr}={Corr_dim}/sqrt(abs(({varrms_ref}(201,160,1)*{varrms}(i,160,k))))'

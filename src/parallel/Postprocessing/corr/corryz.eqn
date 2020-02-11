@@ -1,0 +1,11 @@
+#!MC 1400
+# Created by Tecplot 360 build 14.0.2.35002
+# '250' is the center of imax
+$!ALTERDATA 
+  EQUATION = '{delta0}=0.032'
+$!ALTERDATA 
+  EQUATION = '{yod}={ydiff}/{delta0}'
+$!ALTERDATA 
+  EQUATION = '{zod}={z}/{delta0}'
+$!ALTERDATA 
+  EQUATION = '{Corr}={Corr_dim}/sqrt({varrms_ref}(250,j,1)*{varrms}(250,j,1))'
